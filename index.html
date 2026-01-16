@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czars Bookstore</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 56px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/CastleFantasy.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            color: white;
+        }
+        .pad20 {
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.jpg" alt="Czars Bookstore Logo" height="40">
+            </a>
+            <!-- Toggler Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">GET IN TOUCH</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="hero-section pad20">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-9 col-md-12">
+                    <h1>The Anastasia Project</h2>
+                    <p>What if the rumors were true? What if Anastasia Romanov had truly survived?</p>
+                    <p>In The Anastasia Project, a powerful leader uncovers the lost bones of Anastasia Romanov after 70 years and secretly clones her. Raised unaware of her origins, Anastasia's world is turned upside down when the truth is revealed. As fame, power, and identity collide, she must confront her place in the world—and her own humanity.</p>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <img src="img/angled-paperback-book-mockup-standing-on-a-transparent-surface-a15657.png" alt="The Anastasia Project book cover" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Author Section -->
+    <section class="container my-5 pad20">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-12">
+                <img src="img/author.jpg" alt="Mike Misiaszek" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-7 col-md-12">
+                <h5 class="text-muted">MEET THE AUTHOR</h2>
+                <h1>Mike Misiaszek</h1>
+                <p>With a rich background that spans maritime navigation, law, and the judiciary, Mike Misiaszek brings a unique perspective to storytelling. Born in Huntington, New York, Mike spent his childhood in New York Mills before graduating from Notre Dame High School in Utica. He attended SUNY Maritime in NYC, earning a degree in physical oceanography and meteorology, followed by a commission in the Navy as a reserve lieutenant. His adventurous career took him around the world as a deck officer aboard oil tankers and rig boats in the Gulf of Mexico.  Mike transitioned from the sea to the courtroom, graduating from Albany Law School and practicing law in Utica for nearly 40 years. In 2002, he became a part-time city court judge in Oneida, NY, eventually moving to a full-time role in 2019.  When he’s not writing or serving the community, Mike enjoys life on his homestead in Stockbridge, NY, alongside his wife Cathy, their two sons, and a growing family of grandchildren.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-12">
+                
+                <section>
+                    <div id="news-container"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About</h5>
+                    <p>Czars Bookstore is dedicated to providing quality books and exceptional service.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none">Terms of Service</a></li>
+                        <li><a href="#" class="text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>
+                        Email: info@czarsbookstore.com<br>
+                        Phone: (555) 123-4567
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2026 Czars Bookstore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/news.js"></script>
+    <script>loadAndDisplayNews('data/news.json', 'news-container');</script>
+</body>
+</html>

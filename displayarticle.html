@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czars Bookstore - Article</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 56px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.jpg" alt="Czars Bookstore Logo" height="40">
+            </a>
+            <!-- Toggler Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">GET IN TOUCH</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div id="article-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About</h5>
+                    <p>Czars Bookstore is dedicated to providing quality books and exceptional service.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none">Terms of Service</a></li>
+                        <li><a href="#" class="text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none">Facebook</a></li>
+                        <li><a href="#" class="text-decoration-none">Twitter</a></li>
+                        <li><a href="#" class="text-decoration-none">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 Czars Bookstore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/news.js"></script>
+    <script>
+        // Get article number from URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const articleNum = parseInt(params.get('article'));
+        
+        if (!isNaN(articleNum)) {
+            displayFullArticle('data/news.json', 'article-container', articleNum);
+        } else {
+            document.getElementById('article-container').innerHTML = '<p class="alert alert-danger">Article not found.</p>';
+        }
+    </script>
+</body>
+</html>
