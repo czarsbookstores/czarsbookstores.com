@@ -1,3 +1,11 @@
+function truncateText(text, wordLimit) {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
+}
+
 async function loadAndDisplayNews(jsonFilePath, containerId, firstArticle = 0, lastArticle = undefined) {
     try {
         const response = await fetch(jsonFilePath);
@@ -12,11 +20,8 @@ async function loadAndDisplayNews(jsonFilePath, containerId, firstArticle = 0, l
             // Calculate the original article index for the link
             const originalIndex = firstArticle + index;
             
-            // Truncate text to 200 characters
-            let truncatedText = article.text;
-            if (truncatedText.length > 200) {
-                truncatedText = truncatedText.substring(0, 200) + '...';
-            }
+            // Truncate text to 200 words
+            const truncatedText = truncateText(article.text, 200);
             
             const articleHTML = `
                 <section class="mt-5">
@@ -71,5 +76,43 @@ async function displayFullArticle(jsonFilePath, containerId, articleIndex) {
     } catch (error) {
         console.error('Error loading article:', error);
         document.getElementById(containerId).innerHTML = '<p class="alert alert-danger">Error loading article.</p>';
+    }
+}
+
+async function displayRecentArticles(jsonFilePath, containerId, count = 3) {
+    try {
+        const response = await fetch(jsonFilePath);
+        const articles = await response.json();
+        
+        // Get the most recent articles (first 'count' articles)
+        const recentArticles = articles.slice(0, count);
+        
+        const container = document.getElementById(containerId);
+        
+        let flexRow = '<div class="d-flex flex-wrap gap-3 justify-content-center">';
+        
+        recentArticles.forEach((article, index) => {
+            // Truncate text to 200 words
+            const truncatedText = truncateText(article.text, 50);
+            
+            flexRow += `
+                <div class="card" style="flex: 1 1 calc(33.333% - 1rem); min-width: 250px;">
+                    <img src="${article.image}" alt="${article.heading}" class="card-img-top">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${article.heading}</h5>
+                        <p class="card-text text-muted small">${article.date}</p>
+                        <p class="card-text flex-grow-1">${truncatedText}</p>
+                        <a href="displayarticle.html?article=${index}" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            `;
+        });
+        
+        flexRow += '</div>';
+        
+        container.innerHTML = flexRow;
+    } catch (error) {
+        console.error('Error loading recent articles:', error);
+        document.getElementById(containerId).innerHTML = '<p class="alert alert-danger">Error loading articles.</p>';
     }
 }
